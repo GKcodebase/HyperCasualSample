@@ -66,4 +66,9 @@ public class PlayerBehaviour : MonoBehaviour
             
         }
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+      Debug.Log("I have collided with the square!");
+        
+    }
 }
