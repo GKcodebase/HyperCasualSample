@@ -9,6 +9,8 @@ public class PlayerBehaviour : MonoBehaviour
     float angle = 0;
     int xSpeed = 3;
     int ySpeed = 30;
+    GameManager gameManagerObject;
+
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -16,6 +18,8 @@ public class PlayerBehaviour : MonoBehaviour
     void Awake()
     {
         PlayerRigi = GetComponent<Rigidbody2D>();
+        gameManagerObject = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
     }
 
     // Start is called before the first frame update
@@ -68,7 +72,10 @@ public class PlayerBehaviour : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-      Debug.Log("I have collided with the square!");
-        
+        PlayerDeath();
+    }
+    void PlayerDeath()
+    {
+        gameManagerObject.GameOver();
     }
 }
