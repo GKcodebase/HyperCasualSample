@@ -11,6 +11,8 @@ public class PlayerBehaviour : MonoBehaviour
     int ySpeed = 30;
     GameManager gameManagerObject;
     public GameObject deathEffectObject;
+    bool playerIsDead = false;
+
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
@@ -37,7 +39,8 @@ public class PlayerBehaviour : MonoBehaviour
     /// This function is called every fixed framerate frame, if the MonoBehaviour is enabled.
     /// </summary>
     void FixedUpdate()
-    {
+    {        
+        if (playerIsDead == true) return;
         PlayerInput();
         PlayerMovement();
     }
@@ -75,7 +78,14 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void PlayerDeath()
     {
+        playerIsDead = true;
         Destroy(Instantiate(deathEffectObject, transform.position, Quaternion.identity), 0.5f);
-        gameManagerObject.GameOver();   
+        gameManagerObject.GameOver(); 
+        StopPlayerMovement();  
+    }
+    void StopPlayerMovement()
+    {
+        PlayerRigi.velocity = new Vector2(0, 0);
+        PlayerRigi.isKinematic = true;
     }
 }
