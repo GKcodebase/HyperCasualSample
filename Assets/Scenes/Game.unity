@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 1126538657}
   - component: {fileID: 1126538658}
   - component: {fileID: 1126538659}
+  - component: {fileID: 1126538660}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -360,6 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b959c4a06cad4a0e9963fee24ad36ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathEffectObject: {fileID: 8119234079032024045}
 --- !u!50 &1126538658
 Rigidbody2D:
   serializedVersion: 4
@@ -375,7 +377,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -488,6 +490,32 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!61 &1126538660
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126538654}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &2112483233
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,9 +676,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4264412663861879073, guid: 968c28c0ed3c14945a2d777dcdc9ae67, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 5783273262730751363, guid: 968c28c0ed3c14945a2d777dcdc9ae67, type: 3}
       propertyPath: m_Name
       value: PlayerDeathEffect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968c28c0ed3c14945a2d777dcdc9ae67, type: 3}
+--- !u!1 &8119234079032024045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5783273262730751363, guid: 968c28c0ed3c14945a2d777dcdc9ae67, type: 3}
+  m_PrefabInstance: {fileID: 8119234079032024044}
+  m_PrefabAsset: {fileID: 0}

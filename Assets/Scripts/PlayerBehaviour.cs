@@ -10,8 +10,7 @@ public class PlayerBehaviour : MonoBehaviour
     int xSpeed = 3;
     int ySpeed = 30;
     GameManager gameManagerObject;
-
-
+    public GameObject deathEffectObject;
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
@@ -76,6 +75,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void PlayerDeath()
     {
-        gameManagerObject.GameOver();
+        Destroy(Instantiate(deathEffectObject, transform.position, Quaternion.identity), 0.5f);
+        gameManagerObject.GameOver();   
     }
 }
