@@ -74,7 +74,15 @@ public class PlayerBehaviour : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerDeath();
+       if(other.gameObject.tag == "Obstacle")
+        {
+            PlayerDeath();
+        }
+        else if(other.gameObject.tag == "Item")
+        {
+            
+        }    
+        
     }
     void PlayerDeath()
     {
