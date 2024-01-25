@@ -80,7 +80,8 @@ public class PlayerBehaviour : MonoBehaviour
         }
         else if(other.gameObject.tag == "Item")
         {
-            
+            gameManagerObject.ScoreIncrement();
+            Destroy(other.gameObject);
         }    
         
     }

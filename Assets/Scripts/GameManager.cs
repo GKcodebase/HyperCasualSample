@@ -7,11 +7,15 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {   
      public GameObject GameOverPanel;
+     public TextMeshProUGUI currScoreText;
+    int currScore;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        currScore = 0;
+        // ScoreSetting();
     }
 
     // Update is called once per frame
@@ -25,11 +29,15 @@ public class GameManager : MonoBehaviour
     }
     public void RestartGame()
     {
-        Debug.Log("Button Click!");
         SceneManager.LoadScene(0);
     }
-        public void LoadSceneSelect()
+    public void LoadSceneSelect()
     {
         SceneManager.LoadScene(1);
+    }
+    public void ScoreIncrement()
+    {
+        Debug.Log("SCORE Click!");
+        currScore++;
     }
 }
